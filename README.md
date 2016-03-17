@@ -3,7 +3,7 @@
 A simple website structure using:
 - gulp
 - browser-sync.
-- normalize
+- normalize (or reset)
 
 To use it just run:
 ```
