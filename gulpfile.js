@@ -4,6 +4,8 @@ var sass          = require('gulp-sass')
 var jade          = require('gulp-jade')
 var plumber       = require('gulp-plumber')
 var gutil         = require('gulp-util')
+var concat        = require('gulp-concat')
+var uglify        = require('gulp-uglify')
 var watching      = true
 
 gulp.task('sass', function() {
@@ -25,10 +27,12 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('dist/'))
 })
 
-gulp.task('copy-js-files', function(){
-    gulp.src('src/js/*.js')
-    .pipe(watching ? plumber() : gutil.noop())
-    .pipe(gulp.dest('dist/js'))
+gulp.task('js', function(){
+  gulp.src('src/js/*.js')
+  .pipe(concat('main.js'))
+	.pipe(uglify())
+  .pipe(watching ? plumber() : gutil.noop())
+  .pipe(gulp.dest('dist/js'))
 })
 
 gulp.task('browser-sync', function() {
@@ -39,9 +43,9 @@ gulp.task('browser-sync', function() {
   })
 })
 
-gulp.task('default', ['browser-sync', 'sass', 'jade', 'copy-js-files'], function() {
+gulp.task('default', ['browser-sync', 'sass', 'jade', 'js'], function() {
   gulp.watch('src/scss/*.scss', ['sass'])
   gulp.watch('src/views/*.jade', ['jade'])
-  gulp.watch('src/js/*.js', ['copy-js-files'])
+  gulp.watch('src/js/*.js', ['js'])
   gulp.watch('src/**/*', browserSync.reload)
 })
