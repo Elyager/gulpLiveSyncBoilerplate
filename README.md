@@ -9,6 +9,10 @@ A simple website structure using:
 - uglify
 - concat
 
+ToDo List:
+- Add concat and minification for css files
+- Add sourcemaps
+
 To use it just run:
 ```
 $ npm install
