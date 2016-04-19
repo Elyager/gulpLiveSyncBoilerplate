@@ -2,7 +2,7 @@
 // but you know paranoia
 window.onload = function (){
   console.log('The DOM is loaded!');
-}
+};
 
 function prueba() {
   console.log('prueba');
