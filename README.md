@@ -1,19 +1,23 @@
 # GulpLiveSyncBoilerplate
 
 A simple website structure using:
-- gulp
-- browser-sync.
 - normalize (or reset)
-- sass
-- plumber and gulp-util (to don't stop server at watching mode)
-- uglify
-- concat
+- browser-sync
 - jshint
-- autoprefixer
+- gulp
+- gulp-autoprefixer
+- gulp-concat
+- gulp-jade
+- gulp-jshint
+- gulp-load-plugins
+- gulp-plumber
+- gulp-util
+- gulp-sass
+- gulp-sourcemaps
+- gulp-uglify
+- gulp-yuicompressor
 
 ToDo List:
-- Add concat and minification for css files
-- Add sourcemaps
 - Fix error sometimes is needed double refresh
 
 To use it just run:

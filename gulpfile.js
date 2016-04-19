@@ -6,9 +6,15 @@ var reload        = browserSync.reload;
 
 gulp.task('sass', function() {
   gulp.src('src/scss/*.scss')
+    .pipe(pg.sourcemaps.init())
     .pipe(watching ? pg.plumber() : pg.guitl.noop())
     .pipe(pg.sass())
     .pipe(pg.autoprefixer('last 2 version'))
+    .pipe(pg.concat('style.min.css'))
+    .pipe(pg.yuicompressor({
+    			type: 'css'
+    		}))
+    .pipe(pg.sourcemaps.write())
     .pipe(gulp.dest('dist/css'));
 });
 gulp.task('sass-watch', ['sass'], reload);
@@ -28,11 +34,13 @@ gulp.task('jade-watch', ['templates'], reload);
 
 gulp.task('js', function(){
   gulp.src('src/js/*.js')
-  .pipe(pg.concat('main.js'))
-	.pipe(pg.uglify())
+  .pipe(pg.sourcemaps.init())
+  .pipe(pg.concat('main.min.js'))
   .pipe(pg.jshint())
   .pipe(pg.jshint.reporter('default'))
+	.pipe(pg.uglify())
   .pipe(watching ? pg.plumber() : pg.guitl.noop())
+  .pipe(pg.sourcemaps.write())
   .pipe(gulp.dest('dist/js'));
 });
 gulp.task('js-watch', ['js'], reload);
@@ -40,7 +48,7 @@ gulp.task('js-watch', ['js'], reload);
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: './dist'
     }
   });
 });
