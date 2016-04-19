@@ -1,0 +1,22 @@
+{
+  "name": "simple-static-website",
+  "description": "",
+  "main": "",
+  "authors": [
+    "@elyager"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Elyager/gulpLiveSyncBoilerplate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "normalize-css": "^4.1.1"
+  }
+}
