@@ -4,10 +4,14 @@ window.onload = function (){
   console.log('The DOM is loaded!');
 };
 
-function prueba() {
-  console.log('prueba');
-}
 // Another way to do it
 // document.addEventListener('DOMContentLoaded', function(){
 //     console.log('The DOM is loaded!')
 //  });
+$(document).ready(function() {
+  console.log('Jquery is wokring!');
+});
+
+function prueba() {
+  console.log('prueba');
+}
