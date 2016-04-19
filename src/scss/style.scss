@@ -1,6 +1,9 @@
+@import 'modules/header';
+
 $plate: #027db3;
 $titles: #fff;
 $text: #fff;
+
 
 body {
 	font-family: Helvetica, sans-serif;
@@ -10,5 +13,6 @@ body {
 }
 
 h1 {
-	display: flex;
+	font-style: italic;
+	color: #ec370f;
 }
