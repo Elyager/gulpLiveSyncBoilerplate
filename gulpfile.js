@@ -61,7 +61,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('default', ['browser-sync', 'copy-components', 'sass', 'js', 'templates' ], function() {
   gulp.watch('bower_components/**', ['copy-components']);
-  gulp.watch('src/scss/*.scss', ['sass-watch']);
+  gulp.watch('src/scss/**/*.scss', ['sass-watch']);
   gulp.watch('src/js/*.js', ['js-watch']);
   gulp.watch('src/views/*.jade', ['jade-watch']);
 });
