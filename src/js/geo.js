@@ -1,1 +1,1 @@
-console.log('secondary js file is also working!')
+console.log('secondary js file is also working!');

@@ -6,6 +6,8 @@ var plumber       = require('gulp-plumber')
 var gutil         = require('gulp-util')
 var concat        = require('gulp-concat')
 var uglify        = require('gulp-uglify')
+var autoprefixer  = require('gulp-autoprefixer')
+var jshint        = require('gulp-jshint')
 var watching      = true
 var reload        = browserSync.reload;
 
@@ -13,6 +15,7 @@ gulp.task('sass', function() {
   gulp.src('src/scss/*.scss')
     .pipe(watching ? plumber() : gutil.noop())
     .pipe(sass())
+    .pipe(autoprefixer('last 2 version'))
     .pipe(gulp.dest('dist/css'))
 })
 gulp.task('sass-watch', ['sass'], reload)
@@ -34,6 +37,8 @@ gulp.task('js', function(){
   gulp.src('src/js/*.js')
   .pipe(concat('main.js'))
 	.pipe(uglify())
+  .pipe(jshint())
+  .pipe(jshint.reporter('default'))
   .pipe(watching ? plumber() : gutil.noop())
   .pipe(gulp.dest('dist/js'))
 })
