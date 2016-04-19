@@ -16,12 +16,14 @@ A simple website structure using:
 - gulp-sourcemaps
 - gulp-uglify
 - gulp-yuicompressor
+- main-bower-files
 
 ToDo List:
 - Fix error sometimes is needed double refresh
 
 To use it just run:
 ```
+$ bower install
 $ npm install
 $ gulp
 ```
