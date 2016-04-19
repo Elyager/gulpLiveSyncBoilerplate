@@ -1,21 +1,14 @@
 var gulp          = require('gulp');
 var browserSync   = require('browser-sync');
-var sass          = require('gulp-sass');
-var jade          = require('gulp-jade');
-var plumber       = require('gulp-plumber');
-var gutil         = require('gulp-util');
-var concat        = require('gulp-concat');
-var uglify        = require('gulp-uglify');
-var autoprefixer  = require('gulp-autoprefixer');
-var jshint        = require('gulp-jshint');
+var pg            = require('gulp-load-plugins')();
 var watching      = true;
 var reload        = browserSync.reload;
 
 gulp.task('sass', function() {
   gulp.src('src/scss/*.scss')
-    .pipe(watching ? plumber() : gutil.noop())
-    .pipe(sass())
-    .pipe(autoprefixer('last 2 version'))
+    .pipe(watching ? pg.plumber() : pg.guitl.noop())
+    .pipe(pg.sass())
+    .pipe(pg.autoprefixer('last 2 version'))
     .pipe(gulp.dest('dist/css'));
 });
 gulp.task('sass-watch', ['sass'], reload);
@@ -24,8 +17,8 @@ gulp.task('templates', function() {
   var YOUR_LOCALS = {};
 
   gulp.src('src/views/*.jade')
-    .pipe(watching ? plumber() : gutil.noop())
-    .pipe(jade({
+    .pipe(watching ? pg.plumber() : pg.guitl.noop())
+    .pipe(pg.jade({
       locals: YOUR_LOCALS
       ,pretty:true
     }))
@@ -35,11 +28,11 @@ gulp.task('jade-watch', ['templates'], reload);
 
 gulp.task('js', function(){
   gulp.src('src/js/*.js')
-  .pipe(concat('main.js'))
-	.pipe(uglify())
-  .pipe(jshint())
-  .pipe(jshint.reporter('default'))
-  .pipe(watching ? plumber() : gutil.noop())
+  .pipe(pg.concat('main.js'))
+	.pipe(pg.uglify())
+  .pipe(pg.jshint())
+  .pipe(pg.jshint.reporter('default'))
+  .pipe(watching ? pg.plumber() : pg.guitl.noop())
   .pipe(gulp.dest('dist/js'));
 });
 gulp.task('js-watch', ['js'], reload);
