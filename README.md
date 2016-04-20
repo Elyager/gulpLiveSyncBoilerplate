@@ -19,7 +19,6 @@ A simple website structure using:
 - main-bower-files
 
 ToDo List:
-- Fix error sometimes is needed double refresh
 
 To use it just run:
 ```
