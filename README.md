@@ -1,4 +1,4 @@
-# GulpLiveSyncBoilerplate
+# Simple Static Website
 
 A simple website structure using:
 - normalize (or reset)
