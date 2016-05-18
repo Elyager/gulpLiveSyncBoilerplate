@@ -68,9 +68,15 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('default', ['browser-sync', 'copy-components', 'sass', 'js', 'templates' ], function() {
+gulp.task('copy-assets', function() {
+  gulp.src('src/assets/**/*')
+  .pipe(gulp.dest('dist/assets'));
+});
+
+gulp.task('default', ['browser-sync', 'copy-assets', 'copy-components', 'sass', 'js', 'templates' ], function() {
   gulp.watch('bower_components/**', ['copy-components']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/*.js', ['js']);
   gulp.watch('src/views/*.jade', ['templates']);
+  gulp.watch('src/assets/**/*', ['copy-assets']);
 });
