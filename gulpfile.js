@@ -17,6 +17,7 @@ gulp.task('sass', function() {
     .pipe(pg.sourcemaps.init())
     .pipe(watching ? pg.plumber() : pg.guitl.noop())
     .pipe(pg.sass())
+    .pipe(pg.csscomb())
     .pipe(pg.autoprefixer('last 2 version'))
     .pipe(pg.concat('style.min.css'))
     .pipe(pg.yuicompressor({

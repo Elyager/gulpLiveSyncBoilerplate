@@ -6,13 +6,13 @@ $text: #fff;
 
 
 body {
+	background-color: $plate;
 	font-family: Helvetica, sans-serif;
 	line-height: 1.5;
 	color: $text;
-	background-color: $plate;
 }
 
 h1 {
-	font-style: italic;
 	color: #0fecd1;
+	font-style: italic;
 }
