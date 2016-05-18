@@ -7,6 +7,7 @@ A simple website structure using:
 - gulp
 - gulp-autoprefixer
 - gulp-concat
+- gulp-csscomb
 - gulp-jade
 - gulp-jshint
 - gulp-load-plugins
